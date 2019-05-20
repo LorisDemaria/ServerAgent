@@ -11,7 +11,7 @@ public class ServerGui extends JFrame {
 	public ServerGui() {
 		
 	Terrain environnement = new Terrain(600,300);
-	setSize(1200, 1200);
+	setSize(400, 400);
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	add(environnement);
 	setVisible(true);

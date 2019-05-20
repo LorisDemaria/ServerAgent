@@ -23,6 +23,7 @@ public class Terrain extends Canvas implements MouseListener {
 		setSize(l,h);		
 		setBackground(Color.BLACK);
 	   setVisible(true);
+	   addMouseListener(this);
 	}
 
 	@Override
