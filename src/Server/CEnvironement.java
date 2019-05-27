@@ -59,11 +59,8 @@ public class CEnvironement extends Canvas implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		//System.out.println("aaaaaé");	
 		 int x=e.getX();
 		 int y=e.getY();
-		 //System.out.println(y);
 		
 		 listObstacles.add(new Obstacle(x, y, 4));
 		 paint(this.getGraphics());
@@ -71,7 +68,6 @@ public class CEnvironement extends Canvas implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	
