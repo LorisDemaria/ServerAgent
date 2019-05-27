@@ -27,7 +27,7 @@ public class Server extends ServerSocket implements Runnable {
 				Socket socket = accept(); // Attente d'un client (bloquant) , retour un socket (ip+port)
 
 				System.out.println("Serveur : lancement d'un service ..");
-				serviceListe.add(new Service(socket));
+				//serviceListe.add(new Service(socket));
 				
 			} catch (IOException e) {
 				e.printStackTrace();
