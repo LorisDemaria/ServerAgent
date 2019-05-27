@@ -1,5 +1,3 @@
-package CClient;
-
 import java.io.Serializable;
 
 public class CBase implements Serializable {

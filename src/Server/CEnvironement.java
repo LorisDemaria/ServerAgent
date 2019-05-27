@@ -8,6 +8,7 @@ import java.awt.Label;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -16,17 +17,17 @@ import javax.swing.JPanel;
 public class CEnvironement extends Canvas implements MouseListener {
 	
 	private List<Ressource> listRessource;
-	private boolean[][] listObstacle;
+	public ArrayList<Obstacle> listObstacles;
 	
 	
 	public CEnvironement(int h, int l) 
 	{
 		super();
 		setSize(l,h);		
-		setBackground(Color.BLACK);
+		setBackground(Color.GRAY);
 	    setVisible(true);
 	    addMouseListener(this);
-	    listObstacle = new boolean[h][l];
+	    listObstacles = new ArrayList<Obstacle>();
 	}
 
 	@Override
@@ -34,9 +35,14 @@ public class CEnvironement extends Canvas implements MouseListener {
 		
 	}
 
-	public void paint(Graphics g,int x,int y) {
-	    g.fillRect(x-5,y-5,10,10);
-	  }
+	
+	public void paint(Graphics g) {
+	    for(Obstacle o : listObstacles)
+	    {
+	    	System.out.println(o.posX);
+	    	o.afficher(g);
+	    }
+	 }
 	
 	
 	@Override
@@ -58,9 +64,9 @@ public class CEnvironement extends Canvas implements MouseListener {
 		 int x=e.getX();
 		 int y=e.getY();
 		 //System.out.println(y);
-		 
-		 paint(this.getGraphics(),x,y);
-		 listObstacle[x][y]=true;
+		
+		 listObstacles.add(new Obstacle(x, y, 4));
+		 paint(this.getGraphics());
 	}
 
 	@Override

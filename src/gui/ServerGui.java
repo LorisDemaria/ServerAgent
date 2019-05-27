@@ -10,7 +10,7 @@ public class ServerGui extends JFrame {
 	
 	public ServerGui() {
 		
-	CEnvironement environnement = new CEnvironement(600,300);
+	CEnvironement environnement = new CEnvironement(400,400);
 	setSize(400, 400);
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	add(environnement);
