@@ -13,10 +13,13 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class CEnvironement extends Canvas implements MouseListener {
 	
-	private List<Ressource> listRessource;
+	private static final int SIZE = 16;
+	
+	private ArrayList<Ressource> listRessources;
 	public ArrayList<Obstacle> listObstacles;
 	
 	
@@ -28,6 +31,7 @@ public class CEnvironement extends Canvas implements MouseListener {
 	    setVisible(true);
 	    addMouseListener(this);
 	    listObstacles = new ArrayList<Obstacle>();
+	    listRessources = new ArrayList<Ressource>();
 	}
 
 	@Override
@@ -39,8 +43,11 @@ public class CEnvironement extends Canvas implements MouseListener {
 	public void paint(Graphics g) {
 	    for(Obstacle o : listObstacles)
 	    {
-	    	System.out.println(o.posX);
 	    	o.afficher(g);
+	    }
+	    for(Ressource r : listRessources)
+	    {
+	    	r.afficher(g);
 	    }
 	 }
 	
@@ -61,9 +68,19 @@ public class CEnvironement extends Canvas implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		 int x=e.getX();
 		 int y=e.getY();
+		 
+		 if(SwingUtilities.isLeftMouseButton(e)) 
+		 {
+			 listObstacles.add(new Obstacle(x, y, SIZE, Color.blue));
+			 paint(this.getGraphics());
+		 }
+		 else if(SwingUtilities.isRightMouseButton(e))
+		 {
+			 listRessources.add(new Ressource(x, y, SIZE, Color.red));
+			 paint(this.getGraphics());
+		 }
 		
-		 listObstacles.add(new Obstacle(x, y, 4));
-		 paint(this.getGraphics());
+		 
 	}
 
 	@Override
