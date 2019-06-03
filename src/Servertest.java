@@ -17,7 +17,7 @@ public class Servertest {
         InputStream inputStream = socket.getInputStream();
         // create a DataInputStream so we can read data from it.
         ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-        objectInputStream.defaultReadObject();
+        //objectInputStream.defaultReadObject();
         CBase nom = (CBase)objectInputStream.readObject();
         // read the list of messages from the socket
         
