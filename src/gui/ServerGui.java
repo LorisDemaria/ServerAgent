@@ -7,7 +7,6 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 
-import org.omg.CORBA.Environment;
 
 public class ServerGui extends JFrame{
 
